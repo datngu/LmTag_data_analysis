@@ -83,7 +83,7 @@ colnames(df2) = c("pop", "method", "Percentages")
 df2$Databases = "GWAS"
 df3 = df[, c("pop", "method", "pc_cl")]
 colnames(df3) = c("pop", "method", "Percentages")
-df3$Databases = "Clinvar"
+df3$Databases = "ClinVar"
 
 df = rbind(df1,df2,df3)
 df = rbind(df2,df3)
