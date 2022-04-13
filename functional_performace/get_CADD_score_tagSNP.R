@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 
-setwd("/media/datn/data/1st_DC_sever/result_data/functional_performace")
+setwd("/functional_performace")
 
 get_cadd <- function(cadd, tag, outname){
 	t = read.table(tag, header = F)
@@ -23,6 +23,20 @@ get_cadd_LmTag <- function(tag, outname){
 # LmTag
 pop = c("VNP", "EAS", "SAS", "EUR")
 K_list = c(1,5,10,20,30,50,100,200)
+
+for( p in pop ){
+	for(k in K_list){
+		#cadd = paste0("/media/datn/data/1st_DC_sever/res_tagSNP/CADD_scores/mapped_", p, "_chr10_CCAD.txt")
+		#tag =  paste0("/media/datn/data/1st_DC_sever/LmTag_GWAS_CLINVAR/tags_32000/LmTag_32000_raw/", m , "_", p, "_32000.tag.txt")
+		tag =  paste0("top_32000_raw/LmTag_K", k ,"_", p, "_32000.tag.txt")
+		out = paste0("top_32000_CADD/LmTag_K", k , "_", p , "_32000_effect_score.txt")
+		get_cadd_LmTag(tag, out )
+	}
+}
+
+
+pop = c("VNP", "EAS", "SAS", "EUR")
+K_list = c(500, 1000, 1500, 2000)
 
 for( p in pop ){
 	for(k in K_list){
